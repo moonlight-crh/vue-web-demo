@@ -4,8 +4,9 @@ import store from 'src/store/index.js';
 import NotFound from 'views/404.vue';
 import login from 'views/login/login.vue';
 import sysSetting from 'views/sys-setting/sys-setting.vue';
-const companyHelp = resolve => require(['views/company-help/company-help.vue'], resolve);
-const userCenter = resolve => require(['views/user-center/user-center.vue'], resolve);
+
+const caseSetting = resolve => require(['views/company-help/company-help.vue'], resolve);
+const ruleSetting = resolve => require(['views/user-center/user-center.vue'], resolve);
 // 异步加载：const meetVipRate =  resolve => require(['views/meet-vip-rate/meet-vip-rate.vue'], resolve);
 const flowTemplate = resolve => require(['views/flow-template/flow-template.vue'], resolve);
 const jsplumbLearn = resolve => require(['views/jsplumb-learn/jsplumb-learn.vue'], resolve);
@@ -40,18 +41,18 @@ const router = new Router({
       }
     },
     {
-      path: '/companyHelp',
-      component: companyHelp,
-      name: 'companyHelp',
+      path: '/caseSetting',
+      component: caseSetting,
+      name: 'caseSetting',
       meta: {
         keepAlive: false,
         auth: true
       }
     },
     {
-      path: '/userCenter', /* 首页 */
-      component: userCenter,
-      name: 'userCenter',
+      path: '/ruleSetting', /* 首页 */
+      component: ruleSetting,
+      name: 'ruleSetting',
       meta: {
         keepAlive: false,
         auth: true
@@ -69,7 +70,7 @@ const router = new Router({
     },
     {
       path: '*', /* 默认跳转到登录界面 */
-      redirect: {path: '/flowTemplate'}
+      redirect: {path: '/sysSetting'}
     }
   ]
   // ,scrollBehavior(to, from, savedPosition) {// return 期望滚动到哪个的位置,第三个参数 savedPosition 当且仅当 popstate 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。

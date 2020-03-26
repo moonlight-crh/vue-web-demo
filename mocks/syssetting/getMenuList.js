@@ -27,6 +27,9 @@ module.exports = {
         "children":[],
         "comp":"schollInfo",
         "url":"/schollInfo"
+      }],
+       "comp":"",
+       "url":""
       },{
         "menuId": "id-4",
         "menuNameCn":"提现管理",
@@ -34,9 +37,7 @@ module.exports = {
         "children":[],
         "comp":"withdraw",
         "url":"/withdraw"
-      }],
-      "comp":"",
-      "url":""
+
     },{
       "menuId": "id-5",
       "menuNameCn":"跑腿人",

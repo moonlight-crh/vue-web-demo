@@ -14,10 +14,10 @@ export default {
     errMsg: '用户名或密码错误，或登录受到限制'
   },
   header: {
-    sysName: 'VUE 案例系统',
-    settingManage: '配置管理',
-    userCenter: '用户中心',
-    companyHelp: '企业帮助',
+    sysName: '风控平台',
+    settingManage: '接口管理',
+    ruleSetting: '规则配置',
+    caseSetting: '方案配置',
     setting: '设置',
     logout: '退出',
     zh: '中文',

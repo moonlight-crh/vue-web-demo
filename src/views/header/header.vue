@@ -5,10 +5,10 @@
     </a>
     <el-menu :default-active="activeSysIndex" class="sys-menu" mode="horizontal" @select="handleSelect">
       <el-menu-item index="sysSetting">{{$t('header.settingManage')}}</el-menu-item>
-      <el-menu-item index="userCenter">{{$t('header.userCenter')}}</el-menu-item>
-      <el-menu-item index="companyHelp">{{$t('header.companyHelp')}}</el-menu-item>
-      <el-menu-item index="jsplumbLearn">学习jsplumb</el-menu-item>
-      <el-menu-item index="flowTemplate">流程模板</el-menu-item>
+      <el-menu-item index="ruleSetting">{{$t('header.ruleSetting')}}</el-menu-item>
+      <el-menu-item index="caseSetting">{{$t('header.caseSetting')}}</el-menu-item>
+      <el-menu-item index="jsplumbLearn">接口查询</el-menu-item>
+<!--      <el-menu-item index="flowTemplate">流程模板</el-menu-item>-->
     </el-menu>
     <el-dropdown @command="userOperationFn" class="user">
       <i class="user-icon"></i>
@@ -48,11 +48,11 @@
           case 'sysSetting':
             this.$router.push({path: '/sysSetting'});
             break;
-          case 'userCenter':
-            this.$router.push({path: '/userCenter'});
+          case 'ruleSetting':
+            this.$router.push({path: '/ruleSetting'});
             break;
-          case 'companyHelp':
-            this.$router.push({path: '/companyHelp'});
+          case 'caseSetting':
+            this.$router.push({path: '/caseSetting'});
             break;
           case 'jsplumbLearn':
             this.$router.push({path: '/jsplumbLearn'});

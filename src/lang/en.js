@@ -16,8 +16,8 @@ export default {
   header: {
     sysName: 'VUE CASE',
     settingManage: 'System Manage',
-    userCenter: 'User center',
-    companyHelp: 'Company Help',
+    ruleSetting: 'User center',
+    caseSetting: 'Company Help',
     setting: 'setting',
     logout: 'logout',
     zh: '中文',

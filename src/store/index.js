@@ -14,7 +14,7 @@ const store = new Vuex.Store({
       tabIndex: 0,
       homeTabs: []
     },
-    userCenter: {
+    ruleSetting: {
       homeCurrentTab: 'none',
       currentTab: {},
       tabIndex: 0,
@@ -90,13 +90,13 @@ const store = new Vuex.Store({
     },
     USER_ADD_TAB (state, menuNode) { // 增加页签
       let hasThisTab = false;
-      let len = state.userCenter.homeTabs.length;
+      let len = state.ruleSetting.homeTabs.length;
 
       for (var i = 0; i < len; i++) { // 判断页签是否已经打开过
-        if (state.userCenter.homeTabs[i].id === menuNode.menuId) {
-          state.userCenter.homeCurrentTab = state.userCenter.homeTabs[i].name;
-          state.userCenter.currentTab = state.userCenter.homeTabs[i];
-          state.userCenter.homeTabs[i].timestamp = new Date().getTime();
+        if (state.ruleSetting.homeTabs[i].id === menuNode.menuId) {
+          state.ruleSetting.homeCurrentTab = state.ruleSetting.homeTabs[i].name;
+          state.ruleSetting.currentTab = state.ruleSetting.homeTabs[i];
+          state.ruleSetting.homeTabs[i].timestamp = new Date().getTime();
           hasThisTab = true;
           break;
         }
@@ -105,7 +105,7 @@ const store = new Vuex.Store({
       if (!hasThisTab) {
         let menuName = state.lang === 'zh' ? menuNode.menuNameCn : menuNode.menuNameEn;
 
-        state.userCenter.currentTab = {
+        state.ruleSetting.currentTab = {
           id: menuNode.menuId,
           name: menuNode.menuId,
           title: menuName,
@@ -114,27 +114,27 @@ const store = new Vuex.Store({
           timestamp: new Date().getTime()
         };
 
-        state.userCenter.homeTabs.push(state.userCenter.currentTab);
-        state.userCenter.homeCurrentTab = menuNode.menuId;
-        ++state.userCenter.tabIndex;
+        state.ruleSetting.homeTabs.push(state.ruleSetting.currentTab);
+        state.ruleSetting.homeCurrentTab = menuNode.menuId;
+        ++state.ruleSetting.tabIndex;
       }
     },
     USER_CLICK_TAB (state, target) {// 点击页签
-      let tabs = state.userCenter.homeTabs;
-      let activeName = state.userCenter.homeCurrentTab;
+      let tabs = state.ruleSetting.homeTabs;
+      let activeName = state.ruleSetting.homeCurrentTab;
 
       tabs.forEach((tab, index) => {
         if (tab.name === target.name) {
           activeName = tab.name;
-          state.userCenter.currentTab = tab;
+          state.ruleSetting.currentTab = tab;
           tab.timestamp = new Date().getTime(); // 更新该tab的时间戳
         }
       });
-      state.userCenter.homeCurrentTab = activeName;
+      state.ruleSetting.homeCurrentTab = activeName;
     },
     USER_REMOVE_TAB (state, targetName) {// 删除页签
-      let tabs = state.userCenter.homeTabs;
-      let activeName = state.userCenter.homeCurrentTab;
+      let tabs = state.ruleSetting.homeTabs;
+      let activeName = state.ruleSetting.homeCurrentTab;
 
       tabs.forEach((tab, index) => {
         if (activeName === targetName) {// 删除的是当前打开的
@@ -143,13 +143,13 @@ const store = new Vuex.Store({
 
             if (nextTab) {
               activeName = nextTab.name;
-              state.userCenter.currentTab = nextTab;
+              state.ruleSetting.currentTab = nextTab;
             }
           }
         }
       });
-      state.userCenter.homeCurrentTab = activeName;
-      state.userCenter.homeTabs = tabs.filter(tab => tab.name !== targetName);
+      state.ruleSetting.homeCurrentTab = activeName;
+      state.ruleSetting.homeTabs = tabs.filter(tab => tab.name !== targetName);
     }
   },
   getters: {
@@ -163,11 +163,11 @@ const store = new Vuex.Store({
     },
         // 当前tab
     getUserHomeCurrentTab (state) {
-      return state.userCenter.homeCurrentTab || [];
+      return state.ruleSetting.homeCurrentTab || [];
     },
         // 已打开的tabs
     getUserHomeTabs (state) {
-      return state.userCenter.homeTabs || [];
+      return state.ruleSetting.homeTabs || [];
     }
   },
   actions: {// 增加页签 ，参数：{name:'',path:'',comp:''}

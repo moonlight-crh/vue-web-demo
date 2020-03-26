@@ -31,7 +31,7 @@ export default {
       'getUserHomeTabs'
     ]),
     currentMenu () {
-      return this.$store.state.userCenter.homeCurrentTab;
+      return this.$store.state.ruleSetting.homeCurrentTab;
     }
   },
   components: {
